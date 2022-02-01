@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        margin: 30px;
+        gap: 30px;
+      }
+      img {
+        width: 100%;
+      }
+
+      header,
+      footer {
+        text-align: center;
+      }
+
+      header,
+      footer {
+        padding: 10px 0;
+        border: 1px solid #888;
+      }
+
+      article {
+        border: 1px solid #888;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Titel</header>
+    <main>
+      <h3>Undertitel</h3>
+      <section>
+        <article>
+          <img src="placeimg_640_480_arch.jpg" alt="1" />
+
+          <h4>Article 1</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+            quisquam odio ducimus ut assumenda delectus sint, hic excepturi
+            praesentium suscipit nesciunt perspiciatis quae soluta cupiditate
+            minus. Perspiciatis nulla non optio.
+          </p>
+        </article>
+
+        <article class="col">
+          <img src="placeimg_640_480_nature.jpg" alt="" />
+
+          <h4>Article 2</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            aliquid nostrum repellendus reprehenderit ipsa vitae, hic assumenda
+            totam cum natus magni, amet ipsam praesentium odit architecto
+            adipisci iure doloribus eaque?
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer><h4>This is the footer</h4></footer>
+
+    <script>
+      const titel = document.querySelector("header");
+      console.log(titel);
+      titel.textContent = "Billedgalleri";
+    </script>
+  </body>
+</html>
