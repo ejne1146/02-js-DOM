@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        margin: 30px;
+        gap: 30px;
+      }
+      img {
+        width: 100%;
+      }
+
+      header,
+      footer {
+        text-align: center;
+      }
+
+      header,
+      footer {
+        padding: 10px 0;
+        border: 1px solid #888;
+      }
+
+      article {
+        border: 1px solid #888;
+        transition: all 0.1s;
+      }
+
+      .the_shadow {
+        box-shadow: 0px 0px 34px 2px rgba(0, 0, 0, 0.75);
+      }
+
+      article:nth-child(2) {
+        color: red;
+      }
+
+      article:nth-child(1) img {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Titel</header>
+    <main>
+      <h3>Undertitel</h3>
+      <section>
+        <article>
+          <img src="placeimg_640_480_arch.jpg" alt="pic1" />
+
+          <h4>Article 1</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+            quisquam odio ducimus ut assumenda delectus sint, hic excepturi
+            praesentium suscipit nesciunt perspiciatis quae soluta cupiditate
+            minus. Perspiciatis nulla non optio.
+          </p>
+        </article>
+
+        <article>
+          <img src="placeimg_640_480_nature.jpg" alt="pic2" />
+
+          <h4>Article 2</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            aliquid nostrum repellendus reprehenderit ipsa vitae, hic assumenda
+            totam cum natus magni, amet ipsam praesentium odit architecto
+            adipisci iure doloribus eaque?
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>This is the footer</footer>
+    <script>
+      const headtitle = document.querySelector("header");
+      ("header");
+      console.log(headtitle);
+      headtitle.textContent = "Ny overskrift";
+
+      const artikel1 = document.querySelector("article:nth-child(1) p");
+      console.log(artikel1);
+      artikel1.textContent = "fefejowj jfejfoj jfewjfoj";
+
+      const artikel2 = document.querySelector("article:nth-child(2) p");
+      console.log(artikel2);
+      artikel2.textContent = "bla bla bla";
+
+      const pic1 = document.querySelector("article:nth-child(1) img");
+      console.log(artikel1);
+
+      pic1.src = "https://placeimg.com/640/480/people";
+      pic1.alt = "people";
+
+      const pic2 = document.querySelector("article:nth-child(2) img");
+      console.log(artikel2);
+
+      pic2.src = "https://placeimg.com/640/480/tech";
+      pic2.alt = "tech";
+
+      let mainSection = document.querySelector("section");
+      //Nyt article element
+      let newArticle = document.createElement("article");
+      //Nyt billede
+      let newPic = document.createElement("img");
+      newPic.src = "https://placeimg.com/400/300/any?t=4";
+      //Nyt h# element
+      let overskrift = document.createElement("h4");
+      //tekst til overskriften
+      let overskriftText = document.createTextNode("Article 3");
+
+      //Tekst
+      let newContent = document.createElement("p");
+      newContent.textContent = "Her står der noget om mennesker";
+
+      //indsæt billede til article
+      newArticle.appendChild(newPic);
+      //indsæt tekst i overskrift
+      newArticle.appendChild(overskriftText);
+      //indsæt tekst
+      newArticle.appendChild(newContent);
+
+      //tilføj article til section
+      mainSection.appendChild(newArticle);
+
+      document.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        document.querySelectorAll("article").forEach((article) => {
+          article.addEventListener("mouseover", theMouseOver);
+          article.addEventListener("mouseout", theMouseOut);
+        });
+      }
+
+      function theMouseOver(obj) {
+        console.log("HEY", this);
+        this.classList.add("the_shadow");
+      }
+
+      function theMouseOut() {
+        console.log("HEY", this);
+        this.classList.remove("the_shadow");
+      }
+    </script>
+  </body>
+</html>
